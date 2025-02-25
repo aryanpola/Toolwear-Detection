@@ -16,6 +16,9 @@
 
   ![Discriminator and Generator Structure](https://github.com/aryanpola/Toolwear-Detection/blob/main/nn_structure.jpg?raw=true)
 
+### Generated Image
+![Generated Toolwear_Image]([https://github.com/aryanpola/Toolwear-Detection/blob/main/nn_structure.jpg?raw=true](https://github.com/aryanpola/Toolwear-Detection/blob/main/generated_toolwear_image.png?raw=true))
+
 
 ## Usage
 To use the tool wear detection algorithm, follow these steps:
