@@ -14,6 +14,9 @@
 - **Custom Classifier:** Replaces the final fully connected layer to output three class probabilities.
 - **Training and Evaluation:** Trained with **cross-entropy loss** and evaluated based on **accuracy, precision, recall, and F1 score**.
 
+  ![Discriminator and Generator Structure](https://github.com/aryanpola/Toolwear-Detection/blob/main/nn_structure.jpg?raw=true)
+
+
 ## Usage
 To use the tool wear detection algorithm, follow these steps:
 
