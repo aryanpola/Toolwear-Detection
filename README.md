@@ -17,7 +17,7 @@
   ![Discriminator and Generator Structure](https://github.com/aryanpola/Toolwear-Detection/blob/main/nn_structure.jpg?raw=true)
 
 ### Generated Image
-  <img src="https://github.com/aryanpola/Toolwear-Detection/blob/main/generated_toolwear_image.png?raw=true" alt="Generated Toolwear Image" width="400"/>
+   <img src="https://github.com/aryanpola/Toolwear-Detection/blob/main/generated_toolwear_image.png?raw=true" alt="Generated Toolwear Image" width="400"/>
 
 
 ## Usage
