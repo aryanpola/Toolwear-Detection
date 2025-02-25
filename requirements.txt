@@ -1,0 +1,19 @@
+# Machine Learning & Data Processing
+tensorflow>=2.0.0
+torch>=1.7.0
+torchvision>=0.8.0
+numpy>=1.19.0
+pandas>=1.2.0
+
+# Image Processing
+Pillow>=8.0.0
+opencv-python>=4.5.0
+
+# Progress Bars
+tqdm>=4.50.0
+
+# Visualization
+matplotlib>=3.3.0
+
+# Machine Learning Tools
+scikit-learn>=0.24.0
