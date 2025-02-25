@@ -8,9 +8,8 @@ from tqdm import tqdm
 from sklearn.metrics import precision_score, recall_score, f1_score
 
 def main():
-    # -----------------------------
     # 1. Configuration
-    # -----------------------------
+
     dataset_dir = r"C:\Users\cclab\PycharmProjects\PythonProject\DOP_CNN\original_dataset\train"
     results_file = r"C:\Users\cclab\PycharmProjects\PythonProject\DOP_CNN\model_evaluation.txt"  # File to save results
     num_classes = 3
@@ -19,9 +18,8 @@ def main():
     num_epochs = 50
     use_scheduler = True
 
-    # -----------------------------
     # 2. Data Transformations
-    # -----------------------------
+
     train_transforms = transforms.Compose([
         transforms.Resize((224, 224)),
         transforms.RandomHorizontalFlip(),
@@ -37,9 +35,8 @@ def main():
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ])
 
-    # -----------------------------
     # 3. Load Dataset & Split
-    # -----------------------------
+
     full_dataset = datasets.ImageFolder(root=dataset_dir, transform=train_transforms)
     train_size = int(0.8 * len(full_dataset))
     test_size = len(full_dataset) - train_size
@@ -51,15 +48,13 @@ def main():
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=4)
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=4)
 
-    # -----------------------------
     # 4. Device Configuration
-    # -----------------------------
+
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f'Using device: {device}')
 
-    # -----------------------------
     # 5. Load & Modify Pre-Trained GoogLeNet
-    # -----------------------------
+
     model = models.googlenet(pretrained=True)
 
     for param in model.parameters():
@@ -79,18 +74,16 @@ def main():
 
     model = model.to(device)
 
-    # -----------------------------
     # 6. Loss, Optimizer, and Scheduler
-    # -----------------------------
+
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
     if use_scheduler:
         scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.5)
 
-    # -----------------------------
     # 7. Training Loop
-    # -----------------------------
+
     def train_model(model, train_loader, criterion, optimizer, scheduler, device, num_epochs):
         model.train()
         training_loss_history = []
@@ -129,9 +122,8 @@ def main():
         print("Training complete.")
         return training_loss_history
 
-    # -----------------------------
     # 8. Evaluation Function (Save to File)
-    # -----------------------------
+
     def evaluate_model(model, test_loader, device, results_file):
         model.eval()
         all_preds, all_labels = [], []
@@ -171,16 +163,15 @@ def main():
 
         return accuracy, precision, recall, f1
 
-    # -----------------------------
+
     # 9. Run Training & Evaluation
-    # -----------------------------
+
     training_loss_history = train_model(model, train_loader, criterion, optimizer, scheduler, device, num_epochs)
 
     accuracy, precision, recall, f1 = evaluate_model(model, test_loader, device, results_file)
 
-    # -----------------------------
     # 10. Save the Model
-    # -----------------------------
+
     save_path = r"C:\Users\cclab\PycharmProjects\PythonProject\DOP_CNN\GoogLeNet_augmented.pth"
     torch.save(model.state_dict(), save_path)
     print(f"Model saved to {save_path}")
