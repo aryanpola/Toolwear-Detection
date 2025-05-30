@@ -2,7 +2,7 @@
 # Toolwear-Detection Project
 
 ## Project Introduction
-**Toolwear-Detection** is a Python-based project designed to detect tool wear using machine learning techniques. The project categorizes tool wear into **fine, mild, and severe** classes.
+**Toolwear-Detection** is a Python-based project designed to detect tool wear using machine learning techniques. The project categorizes tool wear with an accuracy of 83.33% into **fine, mild, and severe** classes.
 
 ## Image Classification
 - **Data Transformation:** Preprocess images with resizing, normalization, and augmentation.
